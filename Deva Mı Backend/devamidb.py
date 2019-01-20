@@ -5,25 +5,26 @@ Created on Sat Jan 19 20:11:31 2019
 @author: Oguz
 """
 
-def idBulma(ilacIsim):
+#Butun fonksiyonlar detaylica 'documentation.txt' dosyasında aciklanmistir
+def idBulma(ilacIsim):#ilacin isminden yola cikarak ilacin veritabanindaki id'sine erismek icin kullanilir
     ilacID = ilacVeriTabani.execute("SELECT id FROM ilaclar WHERE isim=?", (ilacIsim,)).fetchall()
     return(ilacID[0][0])
     
-def isimBulma(ilacID):
+def isimBulma(ilacID): #ilacin veritabanindaki id'sinden yola cikarak ilacin ismine erismek icin kullanilir 
     ilacIsim = ilacVeriTabani.execute("SELECT isim FROM ilaclar WHERE id=?", (ilacID,)).fetchall()
     return(ilacIsim[0][0])
     
-def TCdenID(TC):
+def TCdenID(TC):#hastanin Turkiye Cumhuriyeti kimlik numarasından veritabanindaki id'sine eriskek icin kullanilir
     hastaID = hastaVeriTabani.execute("SELECT id FROM hastalar WHERE TC=?", (TC,)).fetchall()
     return(hastaID[0][0])
 
-def kullanma(ilacID):
+def kullanma(ilacID):#id'si ilacID olan ilacla beraber kullanilmamasi gereken ilaclarin id'lerini almak icin kullanilir
     ilac = ilacVeriTabani.execute("SELECT kullanma FROM ilaclar").fetchall()
     ilacStr = "".join(ilac[ilacID-1][0])
     ilacStr = ilacStr.split(",")
     return(ilacStr)
 
-def ilacBilgi(ilacID):
+def ilacBilgi(ilacID):#veritabanidaki ilacin bilgilerini almak için kullanılır
     isim = ilacVeriTabani.execute("SELECT isim FROM ilaclar").fetchall()
     tag = ilacVeriTabani.execute("SELECT tag FROM ilaclar").fetchall()
     antibiyotik = ilacVeriTabani.execute("SELECT antibiyotik FROM ilaclar").fetchall()
@@ -41,20 +42,20 @@ def ilacBilgi(ilacID):
     return(isim[ilacID-1][0], tag[ilacID-1][0], kullanma(ilacID), antibiyotik[ilacID-1][0], agri[ilacID-1][0], antidep[ilacID-1][0], dogum[ilacID-1][0], inceltici[ilacID-1][0],
            NSAID[ilacID-1][0], bobrek[ilacID-1][0], hamile[ilacID-1][0], kalp[ilacID-1][0], diyabet[ilacID-1][0], hemo[ilacID-1][0], aciklama[ilacID-1][0])
     
-def ilacIsimleri():
+def ilacIsimleri():#veritabanindaki tum ilaclarin isimlerini geri verir
     isimDatabase = ilacVeriTabani.execute("SELECT isim FROM ilaclar").fetchall()
     isimler = []
     for i in range(0, len(isimDatabase)):
         isimler.append(isimDatabase[i][0])
     return(isimler)
     
-def kullanilan(hastaID):
+def kullanilan(hastaID):#hastanın kullandıgı ilaclarin id'lerini geri verir
     hasta = hastaVeriTabani.execute("SELECT kullanilan FROM hastalar").fetchall()
     hastaStr = "".join(hasta[hastaID-1][0])
     hastaStr = hastaStr.split(",")
     return(hastaStr)
     
-def hastaBilgi(hastaID):
+def hastaBilgi(hastaID):#hastanin veritabanindaki bilgilerini almak icin kullanilir
     isim = hastaVeriTabani.execute("SELECT isim FROM hastalar").fetchall()
     TC = hastaVeriTabani.execute("SELECT TC FROM hastalar").fetchall()
     bobrek = hastaVeriTabani.execute("SELECT bobrek FROM hastalar").fetchall()
@@ -65,7 +66,7 @@ def hastaBilgi(hastaID):
     return(isim[hastaID-1][0], TC[hastaID-1][0], kullanilan(hastaID), bobrek[hastaID-1][0], hamile[hastaID-1][0], kalp[hastaID-1][0], diyabet[hastaID-1][0], hemo[hastaID-1][0])
     
 
-def ilacKontrol(TCKN, ilacIsim):
+def ilacKontrol(TCKN, ilacIsim):#hastanin belirli bir ilaci kullanmasinda bir sakinca olup olmadigini kontrol eder
     sinirlama = []
     ilacIsim=" "+ilacIsim+" "
     hastaID = TCdenID(TCKN)
@@ -73,7 +74,7 @@ def ilacKontrol(TCKN, ilacIsim):
     for i in range(0, len(kullanilan(hastaID))):
         for j in range(0, len(kullanma(ilacID))):
             if(kullanilan(hastaID)[i] == kullanma(ilacID)[j]):
-                sinirlama.append(isimBulma(kullanilan(hastaID)[i]) + "ve" + ilacIsim + " birlikte kullanılamaz") 
+                sinirlama.append(isimBulma(kullanilan(hastaID)[i]) + "ve" + ilacIsim + " birlikte kullanılamaz.") 
     
     for l in range(0, len(kullanilan(hastaID))):
         ilacTipi = ilacBilgi(int(kullanilan(hastaID)[l]))[1] + 2
