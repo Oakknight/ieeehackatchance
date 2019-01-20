@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color:#38369a">
+	<table>
+		<td style="padding:10px 14em;"></td>
+		<center>
+		<td style="padding:10px 100px 50em;background-color:white">
+			<table>
+				<tr style="padding:100px 50px">
+					<td><img src="\static\hayir.png" height=100px width=100px></td>
+					<td><h1>Bu ilacı verirken akılda bulundurmanız gereken birkaç etmen var!</h1></td>
+				</tr>
+				<tr style="padding:100px 50px">
+					<td col-length=2>
+					<ul>
+						<li id="paragraf"></li>
+					</ul>
+					</td>
+				</tr>
+			</table>
+		</td>
+		</center>
+		<td style="padding:10px 14em;"></td>
+	</table>
+</body>
+<script>
+	var liste = {{sinirlama|safe}};
+	var text = "";
+	var i;
+	text+="<li>";
+	for (i = 0; i < liste.length-1; i++) {
+	  text += liste[i] + "</li><br><li>";
+	}
+	text += liste[i];
+	document.getElementById("paragraf").innerHTML = text;
+</script>
+</html>
