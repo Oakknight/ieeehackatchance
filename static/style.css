@@ -28,12 +28,12 @@ input.roundedb {
 	padding: 4px 7px;
 	outline: 0;
 	-webkit-appearance: none;
-	box-shadow: 0px 5px 0px 3px #007b25;
+	box-shadow: 0px 5px 0px 2.5px #007b25;
 }
 input.roundedb:active {
 	position:relative;
 	bottom:3px;
-	box-shadow: 0px 3px 0px 3px #007b25;
+	box-shadow: 0px 3px 0px 2.5px #007b25;
 }
 div.container6 {
   height: 60em;

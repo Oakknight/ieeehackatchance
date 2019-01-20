@@ -1,27 +1,48 @@
 <!DOCTYPE html>
 <html>
-<body style="background-color:#38369a">
-	<table>
-		<td style="padding:10px 14em;"></td>
-		<center>
-		<td style="padding:10px 100px 50em;background-color:white">
-			<table>
-				<tr style="padding:100px 50px">
-					<td><img src="\static\hayir.png" height=100px width=100px></td>
-					<td><h1>Bu ilacı verirken akılda bulundurmanız gereken birkaç etmen var!</h1></td>
-				</tr>
-				<tr style="padding:100px 50px">
-					<td col-length=2>
-					<ul>
-						<li id="paragraf"></li>
-					</ul>
-					</td>
-				</tr>
-			</table>
-		</td>
-		</center>
-		<td style="padding:10px 14em;"></td>
-	</table>
+<head>
+    <title>Anasayfa</title>
+    <link rel="stylesheet" type="text/css" href="/static/styleresult.css">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+</head>
+
+<style>
+.center {
+ margin: auto;
+ width: 71%;
+ border: 3px solid #73AD21;
+ padding: 10px;
+ overflow:hidden;
+}
+
+div {
+ background-color: lightblue;
+}
+
+body{
+font-family:'PT Sans',sans-serif;
+font-size:20px;
+}
+</style>
+
+
+<body background="\static\pattern.png">
+    <div class="center">
+       <table border = "0">
+       <tr>
+            <th>
+            <img src= "\static\hayir.png" alt="hayir" width="130px" height="130px" style="padding:20px 40px 20px 20px">
+           </th>
+           <th style="padding:0px 10px 0px 0px">
+			<p style="text-align:center;"><h1>Bu ilacı verirken akılda bulundurmanız gereken birkaç etmen var!</h1></p>
+			<p style="text-align:center;"><h3>Hasta: {{hasta_isim}} // İlaç: {{ilac_isim}}</h3></p>
+            </th>
+       </tr>
+        </table>
+			<ul>
+			 <li id="paragraf"></li>
+			</ul>
+    </div>
 </body>
 <script>
 	var liste = {{sinirlama|safe}};
