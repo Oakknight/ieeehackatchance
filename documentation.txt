@@ -1,0 +1,31 @@
+Uygulamanın backend kısmında kullanılan fonksiyonların dokümantasyonları
+
+idBulma(str ilacIsim)
+Adı 'ilacIsim' olan ilacın veritabanında kayıtlı olduğu id'yi integer formatında geri verir.
+
+isimBulma(int ilacID)
+Veritabanında kayıtlı id'si ilacID olan ilacın ismini string formatında geri verir.
+
+TCdenID(int TC)
+Hasta veritabanında kayıtlı, Türkiye Cumhuriyeti kimlik numarası TC olan hastanın hasta veritabanındaki id'sini geri verir.
+
+kullanma(int ilacID)
+İlaç veritabanında id'si ilacID olan ilaçla beraber kullanılmaması gereken ilacların veritabanındaki id'lerini list formatında geri verir.
+
+ilacBilgi(int ilacID)
+İlaç veritabanında kayıtlı olan ve id'si ilacID olan ilacın sırasıyla ismi, ilaç türü, beraber kullanılmaması gereken ilaçların türleri,
+kullanılmaması gereken rahatsızlıklar ve ilacın genel bilgilerini list formatında geri verir.
+
+ilacIsimleri()
+İlaç veritabanında kayıtlı tüm ilaçların isimlerini list formatında geri verir.
+
+kullanilan(int hastaID)
+Hasta veritabanına kayıtlı, id'si hastaID olan hastanın kullandığı ilaçlarin veritabanında kayıtlı id'lerini list fromatında geri verir.
+
+hastaBilgi(int hastaID)
+Hasta veritbanında kayıtlı olan ve id'si hastaID olan hastanın ismi, Turkiye Cumhuriyeti kimlik numarası ve genel rahatsızlıklarını list 
+formatında geri verir.
+
+ilacKontrol(int TC, str ilacIsim)
+Turkiye Cumhuriyeti kimlik numarası TC olan hastanın ismi ilacIsim olan ilacı kullanmasında genel rahatsızlıkları ve ilacın türü gibi
+sebeplerle sakinca olup olmadığını list formatında geri verir. Eğer herhangi bir sıkıntı yoksa bir değişken göndermez.
