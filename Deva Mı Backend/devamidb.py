@@ -14,7 +14,7 @@ def isimBulma(ilacID): #ilacin veritabanindaki id'sinden yola cikarak ilacin ism
     ilacIsim = ilacVeriTabani.execute("SELECT isim FROM ilaclar WHERE id=?", (ilacID,)).fetchall()
     return(ilacIsim[0][0])
     
-def TCdenID(TC):#hastanin Turkiye Cumhuriyeti kimlik numarasından veritabanindaki id'sine eriskek icin kullanilir
+def TCdenID(TC):#hastanin Turkiye Cumhuriyeti kimlik numarasından veritabanindaki id'sine erismek icin kullanilir
     hastaID = hastaVeriTabani.execute("SELECT id FROM hastalar WHERE TC=?", (TC,)).fetchall()
     return(hastaID[0][0])
 
@@ -46,7 +46,7 @@ def ilacIsimleri():#veritabanindaki tum ilaclarin isimlerini geri verir
     isimDatabase = ilacVeriTabani.execute("SELECT isim FROM ilaclar").fetchall()
     isimler = []
     for i in range(0, len(isimDatabase)):
-        isimler.append(isimDatabase[i][0])
+        isimler.append(isimDatabase[i][0][1:-1])
     return(isimler)
     
 def kullanilan(hastaID):#hastanın kullandıgı ilaclarin id'lerini geri verir
@@ -95,7 +95,7 @@ def ilacKontrol(TCKN, ilacIsim):#hastanin belirli bir ilaci kullanmasinda bir sa
         if(m == 1 and hastaBilgi(hastaID)[m + 3] == 1):
             sinirlama.append("Gebeliğin " + str(ilacBilgi(ilacID)[m + 9]) + ". ayına kadar kullanılabilir.")
         else:
-            if(hastaBilgi(hastaID)[m + 3] == ilacBilgi(ilacID)[m + 9]):
+            if(hastaBilgi(hastaID)[m + 3] == 1 and ilacBilgi(ilacID)[m + 9]):
                 if(m == 0):
                     sinirlama.append("Böbrek yetmezliği durumlarında" + ilacBilgi(ilacID)[0] + "kullanılamaz.")
                 elif(m == 2):
