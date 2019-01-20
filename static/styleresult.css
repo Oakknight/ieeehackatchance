@@ -1,0 +1,26 @@
+.wrapper{
+   margin: 0px auto;
+   width: 1000px;
+   background-color: #cccccc
+}
+.header{
+   float: left;
+   width: 100%;
+   background-color: #ffffff
+}
+.content{
+   float: left;
+   width: 100%;
+   background-color: #ffffff
+}
+.footer{
+   float: left;
+   width: 100%;
+   background-color: #ffffff
+}
+body {
+   padding: 0px;
+   margin: 0px;
+   font-size: 90%;
+   background-color: #00457b
+}
