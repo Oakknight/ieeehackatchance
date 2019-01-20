@@ -7,6 +7,8 @@
 (" Warfarin(Oral) ", '5' , '8,1,7' , '1','0','0','0','1','1' , '0','9','0','1','1', "İlacı kullanırken greyfurt suyu, nar suyu tüketiminden kaçınılmalıdır.")
 (" Aspirin(Oral) ", '6' , '8, 5,7' , '0','0','0','0','1','1' , '0','6','0','0','1' , "")
 (" Ibuprofen(Oral) ", '6' , '3,6,2,5,7' , '0','1','1','0','1','1' , '1','6','1','0','0' , "")
+(" AngelDust ", '3' , '' , '0','0','0','0','0','0' , '0','9','0','0','0' , "Cures yo depression :)")
+
 
 *Format*
 ( Name, type, kullanma, boolofdrugs, ofcond,)
@@ -20,6 +22,9 @@ bobrekler
 https://www.drugs.com/drug-interactions/codeine.html
 https://www.drugs.com/coumadin.html
 
+(" Jenny McDieface" , '66666666666' , '1,2,3,4,5,6,7' , '1', '1', '1', '1', '1')
+
+(" Mary Sue" , '24176138125' , '6' , '0', '0', '0', '0', '0')
 
 (" Cinar Kiziltepe" , '55630695643' , '6,7' , '0', '0', '1', '1', '1')
 (" Mehmet Doğar" , '82688054507' , '3,5' , '0', '0', '1', '0', '0')
