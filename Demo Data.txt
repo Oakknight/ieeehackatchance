@@ -22,6 +22,8 @@ bobrekler
 https://www.drugs.com/drug-interactions/codeine.html
 https://www.drugs.com/coumadin.html
 
+(" Rey Kenobi" , '65926382182' , '' , '0', '0', '0', '0', '0')
+
 (" Jenny McDieface" , '66666666666' , '1,2,3,4,5,6,7' , '1', '1', '1', '1', '1')
 
 (" Mary Sue" , '24176138125' , '6' , '0', '0', '0', '0', '0')
