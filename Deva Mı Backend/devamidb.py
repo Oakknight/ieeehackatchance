@@ -134,7 +134,7 @@ else:
 ilacVeriTabani = ilacBaglanti.cursor()
 hastaVeriTabani = hastaBaglanti.cursor()
 
-ilacKontrol(30909671126, "Ibuprofen(Oral)")
+ilacKontrol(30909671126, "Ibuprofen")
 def exit():
     ilacBaglanti.commit()
     ilacBaglanti.close()
