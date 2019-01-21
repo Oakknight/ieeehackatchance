@@ -46,7 +46,7 @@ def ilacIsimleri():#veritabanindaki tum ilaclarin isimlerini geri verir
     isimDatabase = ilacVeriTabani.execute("SELECT isim FROM ilaclar").fetchall()
     isimler = []
     for i in range(0, len(isimDatabase)):
-        isimler.append(isimDatabase[i][0][1:-1])
+        isimler.append(isimDatabase[i][0])
     return(isimler)
     
 def kullanilan(hastaID):#hastanın kullandıgı ilaclarin id'lerini geri verir
@@ -68,7 +68,7 @@ def hastaBilgi(hastaID):#hastanin veritabanindaki bilgilerini almak icin kullani
 
 def ilacKontrol(TCKN, ilacIsim):#hastanin belirli bir ilaci kullanmasinda bir sakinca olup olmadigini kontrol eder
     sinirlama = []
-    ilacIsim=" "+ilacIsim+" "
+    ilacIsim=ilacIsim
     hastaID = TCdenID(TCKN)
     ilacID = idBulma(ilacIsim)
     for i in range(0, len(kullanilan(hastaID))):
@@ -77,7 +77,10 @@ def ilacKontrol(TCKN, ilacIsim):#hastanin belirli bir ilaci kullanmasinda bir sa
                 sinirlama.append(isimBulma(kullanilan(hastaID)[i]) + "ve" + ilacIsim + " birlikte kullanılamaz.") 
     
     for l in range(0, len(kullanilan(hastaID))):
-        ilacTipi = ilacBilgi(int(kullanilan(hastaID)[l]))[1] + 2
+        try:
+            ilacTipi = ilacBilgi(int(kullanilan(hastaID)[l]))[1] + 2
+        except ValueError:
+            continues
         if(ilacTipi == 3):
             sinirlama.append(ilacIsim + ", antibiyotiklerle kullanılamaz.")
         elif(ilacTipi == 4):
